@@ -33,8 +33,8 @@
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
                 <property name="url" value="jdbc:mysql://rm-bp1dv75177ywbj73uco.mysql.rds.aliyuncs.com:3306/lego"/>
-                <property name="username" value="lingoes"/>
-                <property name="password" value="Lingoes@2018"/>
+                <property name="username" value="***"/>
+                <property name="password" value="***"/>
             </dataSource>
         </environment>
     </environments>
