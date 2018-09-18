@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.StationGroupMapper">
+
+    <insert id="putStationGroupsToMysql"  useGeneratedKeys="true" keyProperty="id">
+        insert into stationgroup (mdmID, parentID, objectID, updatedDate, objectTypeID, name, createdDate) values
+        <foreach item="stationGroup" collection="list" separator=",">
+            (#{stationGroup.mdmID}, #{stationGroup.parentID}, #{stationGroup.objectID}, #{stationGroup.updatedDate}, #{stationGroup.objectTypeID}, #{stationGroup.name}, #{stationGroup.createdDate})
+        </foreach>
+    </insert>
+
+    <insert id="putStationGroupToMysql"  useGeneratedKeys="true"  keyProperty="id">
+        insert into stationgroup (mdmID, parentID, objectID, updatedDate, objectTypeID, name, createdDate)
+         values (#{mdmID}, #{parentID}, #{objectID}, #{updatedDate}, #{objectTypeID}, #{name}, #{createdDate})
+    </insert>
+    <!--<select id="selectBlog" resultType="Blog">-->
+    <!--select * from Blog where id = #{id}-->
+    <!--</select>-->
+    <select id="getStationGroupsMdmIdFromMysql" resultType="String" parameterType="map">
+        select MdmId from stationgroup
+    </select>
+</mapper>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.ene.analysis</groupId>
+    <artifactId>getCapacity</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <!--slf4j 1.7.10 和 logback-classic 1.0.13 是好基友 -->
+        <slf4j-api-version>1.7.10</slf4j-api-version>
+        <logback-classic-version>1.0.13</logback-classic-version>
+    </properties>
+<dependencies>
+    <!-- https://mvnrepository.com/artifact/com.envisioniot/enos-api-v2 -->
+   <!-- <dependency>
+        <groupId>com.envisioniot</groupId>
+        <artifactId>enos-api-v2</artifactId>
+        <version>0.0.3</version>
+    </dependency>-->
+    <dependency>
+        <groupId>com.envision.eeop</groupId>
+        <artifactId>sdk</artifactId>
+        <version>0.1.45</version>
+    </dependency>
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j-api-version}</version>
+    </dependency>
+    <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>${logback-classic-version}</version>
+    </dependency>
+    <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>fastjson</artifactId>
+        <version>1.2.49</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+    <dependency>
+        <groupId>org.mybatis</groupId>
+        <artifactId>mybatis</artifactId>
+        <version>3.4.6</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.12</version>
+    </dependency>
+
+</dependencies>
+<build>
+<resources>
+    <resource>
+        <directory>src/main/java</directory>
+        <includes>
+            <include>**/*.xml</include>
+        </includes>
+    </resource>
+    <!--如果配置了拷贝java classpath下面的xml，项目中其他的配置文件应该手动配置复制过去-->
+    <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+            <include>**/*.xml</include>
+        </includes>
+    </resource>
+</resources>
+</build>
+</project>

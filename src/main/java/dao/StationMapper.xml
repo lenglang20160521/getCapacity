@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.StationMapper">
+
+    <insert id="putStationsToMysql"  useGeneratedKeys="true" keyProperty="id">
+        insert into station (mdmID, parentID, objectID, updatedDate, objectTypeID, name, state, businessType, longitude, latitude, isAttachedSite, createdDate, city) values
+        <foreach item="station" collection="list" separator=",">
+            (#{station.mdmID}, #{station.parentID}, #{station.objectID}, #{station.updatedDate}, #{station.objectTypeID}, #{station.name}, #{station.state}, #{station.businessType}, #{station.longitude}, #{station.latitude}, #{station.isAttachedSite}, #{station.createdDate}, #{station.city})
+        </foreach>
+    </insert>
+
+    <insert id="putStationToMysql"  useGeneratedKeys="true"  keyProperty="id">
+        insert into fieldstation (mdmID, parentID, objectID, updatedDate, objectTypeID, name, state, businessType, longitude, latitude, isAttachedSite, createdDate, city)
+         values (#{mdmID}, #{parentID}, #{objectID}, #{updatedDate}, #{objectTypeID}, #{name}, #{state}, #{businessType}, #{longitude}, #{latitude}, #{isAttachedSite}, #{createdDate}, #{city})
+    </insert>
+    <!--<select id="selectBlog" resultType="Blog">-->
+    <!--select * from Blog where id = #{id}-->
+    <!--</select>-->
+    <select id="getStationsMdmIdFromMysql" resultType="String" parameterType="map">
+        select MdmId from station
+    </select>
+</mapper>
